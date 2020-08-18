@@ -1,4 +1,4 @@
 import request from './../utils/request'
-export function getHomeBannerListData () {
+export function getHomeBannerlistData () {
   return request.get('/banner')
 }

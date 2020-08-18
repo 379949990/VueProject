@@ -41,12 +41,14 @@
   html{font-size: 26.66666666vw;}
   @media all and (orientation: landscape){
     html{font-size: 100px;}
+    #container {
+    max-width: 640px;
+    margin: 0 auto;
+    }
   }
   body{font-size: 14px;}
 
   #container{
-    max-width: 1000px;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     #main-box{
@@ -54,6 +56,7 @@
       overflow: auto;
       display: flex;
       flex-direction: column;
+      background-color: #f6f6f6;
       #header{
         height: .44rem;
         background-color: rgb(26, 158, 182);
