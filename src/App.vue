@@ -5,7 +5,8 @@
       <div id="content">内容</div>
     </main> -->
     <router-view></router-view>
-    <footer id="footer">
+    <router-view name="footer"></router-view>
+    <!-- <footer id="footer">
       <ul>
         <router-link to="/home" tag="li">
           <span class="iconfont icon-shouye"></span>
@@ -24,7 +25,7 @@
           <p>我的</p>
         </router-link>
       </ul>
-    </footer>
+    </footer> -->
   </section>
 </template>
 

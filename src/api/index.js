@@ -9,3 +9,6 @@ export function getHomeBannerlistData () {
 export function getHomeProlistData (params) {
   return request.get('/pro', { params })
 }
+export function getProDetailData (params) {
+  return request.get('/pro/detail', { params })
+}

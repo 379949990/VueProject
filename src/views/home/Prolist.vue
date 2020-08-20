@@ -1,6 +1,6 @@
 <template>
   <ul class="prolist">
-    <li class="proitem" v-for="item of prolist" :key="item.index">
+    <li class="proitem" v-for="item of prolist" :key="item.index" @click="toDetail(item.proid)">
       <div class="itemimg">
         <img :src="item.proimg" alt="">
       </div>
@@ -16,6 +16,15 @@
 export default {
   props: {
     prolist: Array
+  },
+  methods: {
+    toDetail (proid) {
+      // console.log(proid)
+      this.$router.push({
+        name: 'detail',
+        params: { proid }
+      })
+    }
   }
 }
 </script>

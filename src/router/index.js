@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 // import Home from '../views/Home.vue'
+import Footer from '../components/Footer'
 
 Vue.use(VueRouter)
 
@@ -12,22 +13,44 @@ const routes = [
   {
     path: '/home',
     name: 'home',
-    component: () => import('../views/home/index.vue')
+    components: {
+      default: () => import('../views/home/index.vue'),
+      footer: Footer
+    }
   },
   {
     path: '/kind',
     name: 'kind',
-    component: () => import('../views/kind/index.vue')
+    components: {
+      default: () => import('../views/kind/index.vue'),
+      footer: Footer
+    }
   },
   {
     path: '/cart',
     name: 'cart',
-    component: () => import('../views/cart/index.vue')
+    components: {
+      default: () => import('../views/cart/index.vue'),
+      footer: Footer
+    }
   },
   {
     path: '/user',
     name: 'user',
-    component: () => import('../views/user/index.vue')
+    components: {
+      default: () => import('../views/user/index.vue'),
+      footer: Footer
+    }
+  },
+  {
+    path: '/detail/:proid',
+    name: 'detail',
+    component: () => import('../views/detail/index.vue')
+  },
+  {
+    path: '/register/',
+    name: 'register',
+    component: () => import('../views/register/index.vue')
   }
 ]
 
