@@ -40,7 +40,12 @@ export function dosendloginCode (params) {
   return request.post('/user/dosendloginCode', params)
 }
 
-// 登录
+// 短信验证码登录
 export function dosmslogin (params) {
   return request.post('/user/dosmslogin', params)
+}
+
+// 用户名登录
+export function domlogin (params) {
+  return request.post('/user/domlogin', params)
 }

@@ -10,7 +10,7 @@
     <div class="content">
       <div class="loginBox" v-if="type === 'phonenumber'" key="phonenumber">
         <van-field v-model="tel" placeholder="请输入手机号" clearable/>
-        <van-field :value="telCode" readonly center clearable  placeholder="请输入短信验证码" @click.native.stop="show = true">
+        <van-field :value="telCode" readonly clearable  placeholder="请输入短信验证码" @click.native.stop="show = true">
           <template #button>
             <van-button size="small" :disabled="flag" round color="rgb(255, 77, 23)" @click.stop="sendCode">{{ btncontent }}</van-button>
           </template>
@@ -18,7 +18,15 @@
       </div>
       <div class="loginBox" key="email" v-else>
         <van-field v-model="loginname" placeholder="请输入用户名/邮箱" clearable/>
-        <van-field v-model="password" placeholder="请输入密码" clearable/>
+        <!-- <van-field v-model="password" placeholder="请输入密码" clearable/> -->
+        <van-field
+        v-model="password"
+        :type="pwtype"
+        placeholder="请输入8-20位登陆密码"
+        clearable
+        :right-icon="righticon"
+        @click-right-icon="changeIcon">
+      </van-field>
       </div>
       <van-number-keyboard
         v-model="telCode"
@@ -29,7 +37,10 @@
       <van-button class="mybtn" block round @click="login" :disabled="btnflag" color="linear-gradient(to right, rgb(241, 0, 0), rgb(255, 77, 23))">
         下一步
       </van-button>
-      <h5 class="loginway" @click="changeloginWay" :type="type">{{ loginWay }}</h5>
+      <div class="loginfooter">
+        <h5 class="loginway" @click="changeloginWay" :type="type">{{ loginWay }}</h5>
+        <h5 @click="toregister">手机号快速注册</h5>
+      </div>
     </div>
   </main>
 </template>
@@ -62,7 +73,9 @@ export default {
       reg: /^[1][3,4,5,7,8][0-9]{9}$/,
       ok: 'true',
       notok: 'false',
-      loginWay: '用户名/邮箱登录'
+      loginWay: '用户名/邮箱登录',
+      pwtype: 'password',
+      righticon: 'closed-eye'
     }
   },
   watch: {
@@ -89,6 +102,7 @@ export default {
       dosendloginCode({
         tel: this.tel
       }).then(res => {
+        Toast('验证码已发送')
         console.log(res.data)
       })
     },
@@ -122,7 +136,18 @@ export default {
             this.$router.push('/')
             Toast('尊敬的用户:' + this.tel + ',您已成功登录')
           }
+        }).catch(() => {
+          console.log(666)
         })
+      }
+    },
+    changeIcon () {
+      if (this.pwtype === 'password') {
+        this.righticon = 'eye-o'
+        this.pwtype = 'text'
+      } else {
+        this.righticon = 'closed-eye'
+        this.pwtype = 'password'
       }
     },
     changeloginWay () {
@@ -137,6 +162,9 @@ export default {
         this.loginWay = '用户名/邮箱登录'
         this.type = 'phonenumber'
       }
+    },
+    toregister () {
+      this.$router.push('/sms')
     }
   },
   computed: {
@@ -168,7 +196,7 @@ export default {
     border-bottom: 1px solid #efefef;
   }
   .mybtn {
-    margin-top: 60px;
+    margin-top: 40px;
     box-shadow: 0 0 10px #f66;
   }
   .tip {
@@ -185,9 +213,12 @@ export default {
   .loginBox {
     height: 1rem;
   }
-  .loginway {
-    line-height: .54rem;
-    color: #888;
+  .loginfooter {
+    height: .54rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #666;
   }
 }
 </style>

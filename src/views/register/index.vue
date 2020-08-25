@@ -16,13 +16,14 @@
 
 <script>
 import Vue from 'vue'
-import { NavBar, Field, Button, Dialog } from 'vant'
+import { NavBar, Field, Button, Dialog, Toast } from 'vant'
 import { docheckphone } from '@/api'
 
 Vue.use(NavBar)
 Vue.use(Field)
 Vue.use(Button)
 Vue.use(Dialog)
+Vue.use(Toast)
 
 export default {
   data () {
@@ -37,7 +38,7 @@ export default {
         console.log(res)
         localStorage.setItem('mobile', this.tel)
         if (res.data.code === '10002') {
-          console.log(456)
+          Toast('该用户已注册!')
         } else {
           Dialog.confirm({
             message: '我们将发送短信验证码至:</br>' + this.tel,

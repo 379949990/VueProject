@@ -33,9 +33,9 @@ export default {
 .content {
   height: 100%;
   background-color: #fff;
-  padding: 60px 30px;
+  padding: 30px;
   .mybtn {
-    margin-top: 60px;
+    margin-top: 40px;
     box-shadow: 0 0 10px #f66;
   }
 }
