@@ -28,7 +28,7 @@
           <van-goods-action-icon icon="chat-o" text="客服" color="#07c160" />
           <van-goods-action-icon icon="cart-o" text="购物车" />
           <van-goods-action-icon icon="star" text="已收藏" color="#ff5000" />
-          <van-goods-action-button type="warning" text="加入购物车" />
+          <van-goods-action-button type="warning" text="加入购物车" @click="addCart" />
           <van-goods-action-button type="danger" text="立即购买" />
         </van-goods-action>
         <van-share-sheet
@@ -43,8 +43,8 @@
 <script>
 
 import Vue from 'vue'
-import { NavBar, Icon, Empty, Swipe, SwipeItem, Image as VanImage, ImagePreview, GoodsAction, GoodsActionIcon, GoodsActionButton, ShareSheet } from 'vant'
-import { getProDetailData } from '@/api'
+import { NavBar, Icon, Empty, Swipe, SwipeItem, Image as VanImage, ImagePreview, GoodsAction, GoodsActionIcon, GoodsActionButton, ShareSheet, Toast } from 'vant'
+import { getProDetailData, addCart } from '@/api'
 
 Vue.use(NavBar)
 Vue.use(Icon)
@@ -79,6 +79,17 @@ export default {
     }
   },
   methods: {
+    addCart () {
+      addCart({
+        userid: localStorage.getItem('userid'),
+        proid: this.proObj.proid,
+        num: 1
+      }).then(res => {
+        if (res.data.code === '200') {
+          Toast('加入购物车成功')
+        }
+      })
+    },
     onChange (index) {
       this.current = index
     },

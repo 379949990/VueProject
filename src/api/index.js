@@ -49,3 +49,13 @@ export function dosmslogin (params) {
 export function domlogin (params) {
   return request.post('/user/domlogin', params)
 }
+
+// 加入购物车
+export function addCart (params) {
+  return request.post('/cart/add', params)
+}
+
+// 获取购物车数据
+export function getCartData (params) {
+  return request.post('/cart', params)
+}

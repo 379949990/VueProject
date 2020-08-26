@@ -86,6 +86,26 @@ export default {
     }
   },
   methods: {
+    loginOfLoginname () {
+      domlogin({
+        loginname: this.loginname,
+        password: this.password
+      }).then(res => {
+        if (res.data.code === '10007') {
+          Toast('密码错误')
+        } else if (res.data.code === '10005') {
+          Toast('该用户尚未注册')
+        } else {
+          Toast('登录成功')
+          localStorage.setItem('userid', res.data.data.userid)
+          localStorage.setItem('token', res.data.data.token)
+          this.$router.back()
+        }
+      })
+    },
+    toggleLogin (type) {
+      this.logintype = type
+    },
     sendCode () {
       let time = 10
       this.timer = setInterval(() => {
