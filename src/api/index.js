@@ -59,3 +59,21 @@ export function addCart (params) {
 export function getCartData (params) {
   return request.post('/cart', params)
 }
+// 删除购物车数据
+export function deleteCartData (params) {
+  return request.post('/cart/delete', params)
+}
+// 更新购物车数量
+export function updateCartNum (params) {
+  return request.post('/cart/updateNum', params)
+}
+
+// 更新全选的选中状态
+export function updateAllFlag (params) {
+  return request.post('/cart/updateAllFlag', params)
+}
+
+// 更新单个商品的选中状态
+export function updateFlag (params) {
+  return request.post('/cart/updateFlag', params)
+}
