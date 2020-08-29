@@ -66,7 +66,22 @@ const routes = [
     path: '/login',
     name: 'login',
     component: () => import('../views/login/index.vue')
+  },
+  {
+    path: '/order/:time',
+    name: 'order',
+    component: () => import('../views/order/index.vue')
   }
+  // {
+  //   path: '/orderaddresslist/:time',
+  //   name: 'order',
+  //   component: () => import('../views/order/list.vue')
+  // },
+  // {
+  //   path: '/orderaddressadd/:time',
+  //   name: 'order',
+  //   component: () => import('../views/order/add.vue')
+  // }
 ]
 
 const router = new VueRouter({

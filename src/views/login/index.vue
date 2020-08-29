@@ -112,11 +112,12 @@ export default {
           tel: this.tel,
           telCode: this.telCode
         }).then(res => {
-          if (res.data.data === '10006') {
+          if (res.data.code === '10006') {
             Toast('验证码错误')
           } else if (res.data.code === '10005') {
             Toast('该用户还未注册,请先注册')
           } else {
+            console.log(res.data.data)
             localStorage.setItem('userid', res.data.data.userid)
             localStorage.setItem('token', res.data.data.token)
             this.$router.back()
@@ -133,6 +134,7 @@ export default {
           } else if (res.data.code === '10005') {
             Toast('该用户还未注册,请先注册')
           } else {
+            console.log(res.data.data.token)
             localStorage.setItem('userid', res.data.data.userid)
             localStorage.setItem('token', res.data.data.token)
             this.$router.back()

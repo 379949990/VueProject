@@ -7,3 +7,22 @@ export function orderAdd (params) {
 export function confirmOrderInfo (params) {
   return request.post('/order/confirmOrderInfo', params)
 }
+
+// 添加地址
+export function addressAdd (params) {
+  return request.post('/address/add', params)
+}
+
+// 更新订单地址
+export function updateOrderAddress (params) {
+  return request.post('/order/updateAddress', params)
+}
+
+// 获取默认地址
+export function getDefaultAddress (params) {
+  return request.post('/address/getDefaultAddress', params)
+}
+// 获取地址列表
+export function getAddresslist (params) {
+  return request.post('/address/addresslist', params)
+}
