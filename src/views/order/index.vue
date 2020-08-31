@@ -80,7 +80,7 @@ export default {
   methods: {
     back () {
       Dialog.confirm({
-        meassage: '便宜不等人,请三思而行',
+        message: '便宜不等人,请三思而行',
         theme: 'round'
       }).then(() => {
         this.$router.back()
@@ -107,7 +107,7 @@ export default {
       }
     },
     changeAddress () {
-      this.$router.push('/orderAddresslist/' + this.$route.params.time)
+      this.$router.push('/orderaddresslist/' + this.$route.params.time)
     }
   }
 }

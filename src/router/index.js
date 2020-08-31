@@ -71,17 +71,17 @@ const routes = [
     path: '/order/:time',
     name: 'order',
     component: () => import('../views/order/index.vue')
+  },
+  {
+    path: '/orderaddresslist/:time',
+    name: 'orderaddresslist',
+    component: () => import('../views/order/list.vue')
+  },
+  {
+    path: '/orderaddressadd/:time',
+    name: 'orderaddressadd',
+    component: () => import('../views/order/add.vue')
   }
-  // {
-  //   path: '/orderaddresslist/:time',
-  //   name: 'order',
-  //   component: () => import('../views/order/list.vue')
-  // },
-  // {
-  //   path: '/orderaddressadd/:time',
-  //   name: 'order',
-  //   component: () => import('../views/order/add.vue')
-  // }
 ]
 
 const router = new VueRouter({

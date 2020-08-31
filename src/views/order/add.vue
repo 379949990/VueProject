@@ -25,8 +25,8 @@ import { NavBar, AddressEdit } from 'vant'
 import areaList from '@/utils/area'
 import { addressAdd, updateOrderAddress } from '@/api/order'
 
-vue.use(NavBar)
-vue.use(AddressEdit)
+Vue.use(NavBar)
+Vue.use(AddressEdit)
 
 export default {
   data () {

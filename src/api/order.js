@@ -20,7 +20,7 @@ export function updateOrderAddress (params) {
 
 // 获取默认地址
 export function getDefaultAddress (params) {
-  return request.post('/address/getDefaultAddress', params)
+  return request.post('/address/defaultAddress', params)
 }
 // 获取地址列表
 export function getAddresslist (params) {

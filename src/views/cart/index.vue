@@ -133,6 +133,7 @@ export default {
       })
     },
     onSubmit () {
+      console.log('去结算')
       const arr = this.cartlist.filter(item => {
         return item.flag
       })
