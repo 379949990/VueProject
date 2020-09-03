@@ -98,18 +98,15 @@ export default {
         images: this.detailBannerlist,
         startPosition: this.current,
         onClose () {
-          // console.log(123)
         }
       })
     }
   },
   mounted () {
     const { params: { proid } } = this.$route
-    console.log(proid)
     getProDetailData({
       proid
     }).then(res => {
-      console.log(res)
       if (res.data.code === '10001') {
         this.flag = true
       } else {

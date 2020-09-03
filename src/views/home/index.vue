@@ -1,6 +1,18 @@
 <template>
   <main id="main-box">
-    <header id="header">home header</header>
+    <header id="header">
+      <ul>
+        <li class="left">
+          <van-icon name="plus" />
+        </li>
+        <li class="center">
+          <div class="search" @click="$router.push('/search')">搜索商品</div>
+        </li>
+        <li class="right">
+          消息
+        </li>
+      </ul>
+    </header>
     <div class="content" id="content" ref="content">
       <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
         <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
@@ -22,7 +34,7 @@
 
 <script>
 import Vue from 'vue'
-import { Swipe, SwipeItem, Image as VanImage, List, PullRefresh, Icon } from 'vant'
+import { Swipe, SwipeItem, Image as VanImage, List, PullRefresh, Icon, NavBar } from 'vant'
 import { getHomeBannerlistData, getHomeProlistData } from './../../api'
 import Nav from './Nav'
 import Prolist from './Prolist'
@@ -33,6 +45,7 @@ Vue.use(VanImage)
 Vue.use(List)
 Vue.use(PullRefresh)
 Vue.use(Icon)
+Vue.use(NavBar)
 
 export default {
   components: {
@@ -52,7 +65,6 @@ export default {
   },
   methods: {
     onRefresh () {
-      console.log('可以刷新数据')
       this.isLoading = true
       getHomeProlistData().then(res => {
         this.prolist = res.data.data
@@ -62,7 +74,6 @@ export default {
       })
     },
     onLoad () {
-      console.log('可以加载数据')
       this.loading = true
       getHomeProlistData({
         limit: 10,
@@ -73,7 +84,6 @@ export default {
           this.finished = true
         } else {
           this.prolist = [...this.prolist, ...res.data.data]
-          // console.log(this.prolist)
         }
         this.count++
       })
@@ -92,7 +102,6 @@ export default {
   mounted () {
     getHomeBannerlistData().then(res => {
       this.bannerlist = res.data.data
-      // console.log(res.data.data)
     })
     getHomeProlistData().then(res => {
       this.prolist = res.data.data
@@ -122,4 +131,34 @@ export default {
     justify-content: center;
     align-items: center;
   }
+  #header {
+  ul {
+    height: 100%;
+    display: flex;
+    background-color: #f66;
+    li {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      &:nth-child(1), &:nth-child(3) {
+        width: 50px;
+        color: #333;
+      }
+      &:nth-child(2) {
+        flex: 1;
+        .search {
+          width: 100%;
+          height: 0.3rem;
+          background-color: #fff;
+          color: #666;
+          padding-left: 12px;
+          line-height: 0.3rem;
+          border-radius: 20px;
+        }
+      }
+    }
+  }
+}
 </style>

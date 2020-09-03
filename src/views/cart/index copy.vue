@@ -74,6 +74,9 @@ export default {
     }
   },
   computed: {
+    cartlist () {
+      return this.$store.state.cart.cartlist
+    }, 
     totalNum () {
       return this.cartlist.reduce((sum, item) => {
         return item.flag ? sum + item.num : sum + 0

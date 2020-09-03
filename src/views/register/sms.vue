@@ -93,7 +93,6 @@ export default {
       dosendmsgcode({
         tel: localStorage.getItem('mobile')
       }).then(res => {
-        console.log(res.data)
       })
     },
     checkCode () {

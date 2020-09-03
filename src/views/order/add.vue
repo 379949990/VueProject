@@ -36,7 +36,6 @@ export default {
   },
   methods: {
     onSave (content) {
-      console.log(content)
       content.userid = localStorage.getItem('userid')
       const address = content.province === content.city ? content.province + content.county + content.addressDetail : content.province + content.city + content.county + content.addressDetail
       addressAdd(content).then(res => {

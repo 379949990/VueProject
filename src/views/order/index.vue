@@ -65,7 +65,6 @@ export default {
           if (res.data.data.length === 0) {
             this.flag = false
           } else {
-            console.log(res)
             const address = res.data.data[0].province === res.data.data[0].city ? res.data.data[0].province + res.data.data[0].county + res.data.data[0].addressDetail : res.data.data[0].province + res.data.data[0].city + res.data.data[0].county + res.data.data[0].addressDetail
             this.flag = true
             this.defaultData = res.data.data
@@ -92,7 +91,6 @@ export default {
       if (this.orderlist[0].tel === '') {
         const address = this.defaultData[0].province === this.defaultData[0].city ? this.defaultData[0].province + this.defaultData[0].county + this.defaultData[0].addressDetail : this.defaultData[0].province + this.defaultData[0].city + this.defaultData[0].county + this.defaultData[0].addressDetail
         const { name, tel } = this.defaultData[0]
-        console.log(this.$route.params)
         updateOrderAddress({
           userid: localStorage.getItem('userid'),
           time: this.$route.params.time,

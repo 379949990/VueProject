@@ -77,3 +77,8 @@ export function updateAllFlag (params) {
 export function updateFlag (params) {
   return request.post('/cart/updateFlag', params)
 }
+
+// 获取搜索数据列表
+export function getSearchData (params) {
+  return request.get('/search/getSearchPro', { params })
+}

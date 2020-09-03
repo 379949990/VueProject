@@ -35,7 +35,6 @@ export default {
   methods: {
     checkPhone () {
       docheckphone({ tel: this.tel }).then(res => {
-        console.log(res)
         localStorage.setItem('mobile', this.tel)
         if (res.data.code === '10002') {
           Toast('该用户已注册!')

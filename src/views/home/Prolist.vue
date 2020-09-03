@@ -19,7 +19,6 @@ export default {
   },
   methods: {
     toDetail (proid) {
-      // console.log(proid)
       this.$router.push({
         name: 'detail',
         params: { proid }

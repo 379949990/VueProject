@@ -35,6 +35,13 @@ const routes = [
     }
   },
   {
+    path: '/search',
+    name: 'search',
+    components: {
+      default: () => import('../views/search/index.vue')
+    }
+  },
+  {
     path: '/user',
     name: 'user',
     components: {
@@ -81,6 +88,11 @@ const routes = [
     path: '/orderaddressadd/:time',
     name: 'orderaddressadd',
     component: () => import('../views/order/add.vue')
+  },
+  {
+    path: '/list',
+    name: 'list',
+    component: () => import('../views/search/list.vue')
   }
 ]
 
