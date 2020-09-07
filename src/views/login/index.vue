@@ -127,7 +127,7 @@ export default {
           loginname: this.loginname,
           password: this.password
         }).then(res => {
-          if (res.data.data === '10007') {
+          if (res.data.code === '10007') {
             Toast('密码错误')
           } else if (res.data.code === '10005') {
             Toast('该用户还未注册,请先注册')
