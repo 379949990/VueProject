@@ -158,9 +158,11 @@ export default {
     }
   },
   mounted () {
+    console.log(5647545)
     getCartData({
       userid: localStorage.getItem('userid')
     }).then(res => {
+      console.log(res)
       this.cartlist = res.data.data
       this.checked = this.cartlist.every(item => {
         return item.flag
