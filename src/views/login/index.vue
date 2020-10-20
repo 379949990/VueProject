@@ -102,6 +102,7 @@ export default {
       dosendloginCode({
         tel: this.tel
       }).then(res => {
+        console.log(res)
         Toast('验证码已发送')
       })
     },
@@ -118,7 +119,7 @@ export default {
           } else {
             localStorage.setItem('userid', res.data.data.userid)
             localStorage.setItem('token', res.data.data.token)
-            this.$router.back()
+            this.$router.push('/home')
             Toast('尊敬的用户:' + this.tel + ',您已成功登录')
           }
         })
@@ -134,7 +135,7 @@ export default {
           } else {
             localStorage.setItem('userid', res.data.data.userid)
             localStorage.setItem('token', res.data.data.token)
-            this.$router.back()
+            this.$router.push('/home')
             Toast('尊敬的用户:' + this.tel + ',您已成功登录')
           }
         })
